@@ -1,0 +1,36 @@
+# Byte-code files
+*.pyc
+__pycache__/
+
+# Virtual environment
+.venv/
+env/
+venv/
+.Python/
+
+# Distribution / packaging
+.eggs/
+*.egg-info/
+dist/
+build/
+wheel/
+
+# Logs and temporary files
+*.log
+*.tmp
+tmp/
+logs/
+
+# IDE-specific files
+.vscode/ # VS Code settings, tasks, and launch configs
+.idea/   # IntelliJ IDEA / PyCharm
+*.sublime-project
+*.sublime-workspace
+
+# Operating System files
+.DS_Store
+Thumbs.db
+
+# Jupyter / IPython
+.ipynb_checkpoints
+*.ipynb_checkpoints/
