@@ -33,13 +33,21 @@ This project demonstrates robust software engineering practices through its modu
 
 This module houses Robbie's sophisticated movement and exploration capabilities:
 
-* **Intelligent Pathfinding:** The `move_to` method uses a **Breadth-First Search (BFS)** algorithm to calculate the shortest path between any two points on the map. This includes clever handling of **map wrapping** (moving off one edge brings Robbie onto the opposite) and ensures **non-diagonal movements** only. Your `_get_neighbors` helper function is key here, accurately determining Robbie's valid adjacent steps on the wrap-around grid.
+* **Intelligent Pathfinding:** The `move_to` method uses a **Breadth-First Search (BFS)** algorithm to calculate the shortest path between any two points on the map. This includes clever handling of **map wrapping** (moving off one edge brings Robbie onto the opposite) and ensures **non-diagonal movements** only.
 * **Dynamic Exploration Mechanics:** Robbie's `explore_feature` method calculates the exact time needed for exploration (rounding up to full days for resting). Critically, Robbie's **exploration speed for a specific feature type permanently increases by 20%** after each successful exploration of that type, reflecting gained experience.
-* **Strategic Robot Transformation (Task 3 Core):**
+* **Strategic Robot Transformation:**
     * Robbie can transform **only once per mission** into a `Drone` or an `AUV`, each with different initial exploration speeds for various feature types.
     * The `calculate_mission_time` function effectively simulates a mission for any robot type (`Robot`, `Drone`, `AUV`) without affecting Robbie's actual state.
     * The `execute_mission` method intelligently **determines the optimal robot type** (prioritizing no transformation, then Drone, then AUV if mission times are equal) to complete a given list of features in the shortest possible duration.
     * Crucially, Robbie's **gained skills persist** across transformations, ensuring his experience always contributes to mission efficiency. After each mission, Robbie automatically reverts to his base `Robot` form.
+    * The base exploration speeds for each robot type are:
+
+        | Robot Type         | Mountain (height unit/day) | Lake (depth unit/day) | Crater (perimeter unit/day) |
+        | :----------------- | :------------------------- | :-------------------- | :-------------------------- |
+        | Robbie the Robot   | 6                          | 8                     | 10                          |
+        | Robbie the Drone   | 12                         | 6                     | 8                           |
+        | Robbie the AUV     | 2                          | 12                    | 6                           |
+
 
 ### Interactive Mission Control (`user_explore.py`)
 
